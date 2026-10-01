@@ -120,6 +120,7 @@
       <li><strong>Account:</strong> your email address, first and last name, display name, and @username.</li>
       <li><strong>Running:</strong> races you log or import (name, distance, time, date), goal races and their prediction history, and your training status.</li>
       <li><strong>Social:</strong> friends, teams you join or coach, team workouts and completions, and cheers and comments on activities.</li>
+      <li><strong>Notifications:</strong> a record of activity that concerns you (who cheered or commented on your races, friend requests, workouts from your coach) and whether you've seen it; which notifications you want; and, if you allow notifications, your device's push token.</li>
     </ul>
     <p>Some settings (widget choices, age-grading details, onboarding progress) and your shoes are kept only on your device.</p>
 
@@ -132,6 +133,7 @@
 
     <h2 class="section">Where it is stored</h2>
     <p>Account data is stored with <a href="https://supabase.com">Supabase</a>, our database and sign-in provider, and is sent over encrypted connections. Access rules on the database limit each record to you and the people listed above. PRISM contains no advertising, analytics, or tracking software.</p>
+    <p>Push notifications are delivered by Apple Push Notification service, so the text of a notification (for example, the name of the friend who commented and the first part of their comment) passes through Apple to reach your device. Your weekly recap, streak and run reminders are scheduled on your device and never leave it.</p>
 
     <h2 class="section">Deleting your data</h2>
     <p>You can delete your account at any time in the app: <strong>Settings → your profile → Delete Account</strong>. This immediately and permanently deletes your account and everything listed above, including any team you coach. Signing out removes your races and goal races from the device. Your data in Apple Health is never affected.</p>
