@@ -93,6 +93,16 @@
     font-size: 13px;
   }
 </style>
+<script>
+  // Supabase sends confirmation links to the Site URL (this page) when it
+  // doesn't use the requested redirect. Forward those to the confirmation page.
+  (function () {
+    var s = location.search + location.hash;
+    if (/[?#&](access_token|code|token_hash|error_description)=/.test(s)) {
+      location.replace("confirmed.html" + location.search + location.hash);
+    }
+  })();
+</script>
 </head>
 <body>
   <div class="wrap">

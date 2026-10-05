@@ -97,9 +97,24 @@
 <body>
   <div class="wrap">
     <div class="logo">PRISM</div>
-    <h1>You're confirmed</h1>
-    <p class="subtitle">Your email address is verified. Go back to the PRISM app and sign in with your email and password.</p>
+    <h1 id="title">You're confirmed</h1>
+    <p class="subtitle" id="message">Your email address is verified. Go back to the PRISM app and sign in with your email and password.</p>
     <footer>© 2026 Grant Schultz · <a href="privacy.html" style="color: var(--accent)">Privacy Policy</a></footer>
   </div>
+<script>
+  // Supabase reports a failed link (e.g. expired) in the URL. Show that
+  // instead of claiming success, then strip tokens from the address bar.
+  (function () {
+    var params = new URLSearchParams(location.hash.slice(1) + "&" + location.search.slice(1));
+    var problem = params.get("error_description");
+    if (problem) {
+      document.title = "PRISM Link Problem";
+      document.getElementById("title").textContent = "This link didn't work";
+      document.getElementById("message").textContent = problem.replace(/\+/g, " ") +
+        ". Open the PRISM app and sign in. If your email still isn't confirmed, sign up again to get a new link.";
+    }
+    if (location.search || location.hash) history.replaceState(null, "", location.pathname);
+  })();
+</script>
 </body>
 </html>
